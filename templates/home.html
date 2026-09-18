@@ -1,11 +1,198 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SolveHub</title>
-</head>
-<body>
-    <p><b>Solve</b>Hub</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}SolveHub{% endblock %}
+
+{% block content %}
+
+<div class="page-container">
+
+    <div class="forum-toolbar">
+
+        <button class="category-dropdown">
+            All Categories
+            <i data-lucide="chevron-down"></i>
+        </button>
+
+        <nav class="forum-tabs">
+            <a href="#" class="active">Categories</a>
+            <a href="#">Latest</a>
+            <a href="#">Top</a>
+        </nav>
+
+    </div>
+
+
+    <section class="forum-list">
+
+        <!-- Category -->
+
+        <article class="category">
+
+            <div class="category-icon blue">
+                <i data-lucide="help-circle"></i>
+            </div>
+
+            <div class="category-info">
+
+                <h2>Ask the Community</h2>
+
+                <p>
+                    Ask questions, share knowledge,
+                    and get help from other users.
+                </p>
+
+                <div class="tags">
+                    <span>Questions</span>
+                    <span>Discussion</span>
+                </div>
+
+            </div>
+
+            <div class="category-posts">
+
+                <a href="#">
+                    How do I solve this problem?
+                    <span>2h</span>
+                </a>
+
+                <a href="#">
+                    Best way to learn Python?
+                    <span>5h</span>
+                </a>
+
+                <a href="#">
+                    Need help with Arduino
+                    <span>1d</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="category">
+
+            <div class="category-icon green">
+                <i data-lucide="lightbulb"></i>
+            </div>
+
+            <div class="category-info">
+
+                <h2>Share Knowledge</h2>
+
+                <p>
+                    Share useful knowledge, tips,
+                    guides, and discoveries.
+                </p>
+
+                <div class="tags">
+                    <span>Tips</span>
+                    <span>Guides</span>
+                </div>
+
+            </div>
+
+            <div class="category-posts">
+
+                <a href="#">
+                    A useful Python trick
+                    <span>4h</span>
+                </a>
+
+                <a href="#">
+                    How databases actually work
+                    <span>8h</span>
+                </a>
+
+                <a href="#">
+                    My experience learning Linux
+                    <span>2d</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="category">
+
+            <div class="category-icon yellow">
+                <i data-lucide="rocket"></i>
+            </div>
+
+            <div class="category-info">
+
+                <h2>Ideas & Projects</h2>
+
+                <p>
+                    Show your projects, ideas,
+                    and things you're working on.
+                </p>
+
+                <div class="tags">
+                    <span>Projects</span>
+                    <span>Ideas</span>
+                </div>
+
+            </div>
+
+            <div class="category-posts">
+
+                <a href="#">
+                    My first robotics project
+                    <span>3h</span>
+                </a>
+
+                <a href="#">
+                    Building a Flask website
+                    <span>1d</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="category">
+
+            <div class="category-icon red">
+                <i data-lucide="bug"></i>
+            </div>
+
+            <div class="category-info">
+
+                <h2>Problems & Bugs</h2>
+
+                <p>
+                    Something isn't working?
+                    Ask the community for help.
+                </p>
+
+                <div class="tags">
+                    <span>Programming</span>
+                    <span>Technical</span>
+                </div>
+
+            </div>
+
+            <div class="category-posts">
+
+                <a href="#">
+                    Flask gives me this error
+                    <span>1h</span>
+                </a>
+
+                <a href="#">
+                    Arduino sensor isn't responding
+                    <span>6h</span>
+                </a>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</div>
+
+{% endblock %}

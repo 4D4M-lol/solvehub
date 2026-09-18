@@ -1,16 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-</head>
-<body>
-    <h1>Profile</h1>
+{% extends "base.html" %}
 
-    <p>Username: {{ user.username }}</p>
-    <p>User ID: {{ user.id }}</p>
+{% block title %}{{ user.username }} | SolveHub{% endblock %}
 
-    <a href="{{ url_for('logout') }}">Logout</a>
-</body>
-</html>
+{% block content %}
+
+<div class="profile-container">
+
+    <section class="profile-card">
+
+        <img
+            src="{{ url_for(
+                'static',
+                filename='uploads/avatars/' + user.profile_picture
+            ) }}"
+            class="profile-avatar"
+            alt="Profile picture"
+        >
+
+        <h1>{{ user.username }}</h1>
+
+        <p class="profile-description">
+            SolveHub member
+        </p>
+
+
+        <form
+            action="{{ url_for('profile.upload_picture') }}"
+            method="POST"
+            enctype="multipart/form-data"
+            class="avatar-form"
+        >
+
+            <label for="profile_picture">
+                Change profile picture
+            </label>
+
+            <input
+                type="file"
+                id="profile_picture"
+                name="profile_picture"
+                accept=".png,.jpg,.jpeg,.webp"
+                required
+            >
+
+            <button type="submit" class="primary-button">
+                Upload Picture
+            </button>
+
+        </form>
+
+    </section>
+
+</div>
+
+{% endblock %}

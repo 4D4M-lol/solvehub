@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}SolveHub{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="navbar">
+
+        <a href="{{ url_for('main.home') }}" class="logo">
+            <div class="logo-icon">
+                <i data-lucide="lightbulb"></i>
+            </div>
+
+            <span>SolveHub</span>
+        </a>
+
+
+        <div class="nav-right">
+
+            {% if session.get("user_id") %}
+
+                <a href="{{ url_for('profile.view_profile') }}" class="profile-link">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='uploads/avatars/' + user.profile_picture
+                        ) }}"
+                        class="nav-avatar"
+                        alt="Profile"
+                    >
+
+                    <span>{{ session.get("username") }}</span>
+
+                </a>
+
+                <a href="{{ url_for('auth.logout') }}" class="nav-button">
+                    Log Out
+                </a>
+
+            {% else %}
+
+                <a href="{{ url_for('auth.signup') }}" class="nav-button">
+                    Sign Up
+                </a>
+
+                <a href="{{ url_for('auth.login') }}" class="nav-button">
+                    Log In
+                </a>
+
+            {% endif %}
+
+            <button class="icon-button">
+                <i data-lucide="search"></i>
+            </button>
+
+            <button class="icon-button">
+                <i data-lucide="menu"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

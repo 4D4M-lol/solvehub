@@ -1,37 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    
-    <h1>Login</h1>
+{% extends "base.html" %}
 
-    <form method="POST">
+{% block title %}Log In | SolveHub{% endblock %}
 
-        <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            required
-        >
+{% block content %}
 
-        <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-        >
+<div class="auth-container">
 
-        <button type="submit">Login</button>
+    <div class="auth-card">
 
-    </form>
+        <div class="auth-icon">
+            <i data-lucide="log-in"></i>
+        </div>
 
-    <a href="{{ url_for('signup') }}">
-        Don't have an account? Sign Up
-    </a>
+        <h1>Welcome back</h1>
 
-</body>
-</html>
+        <p class="auth-subtitle">
+            Log in to continue to SolveHub.
+        </p>
+
+
+        <form method="POST">
+
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+
+            <button type="submit" class="primary-button">
+                Log In
+            </button>
+
+        </form>
+
+
+        <p class="auth-footer">
+            Don't have an account?
+            <a href="{{ url_for('auth.signup') }}">Sign Up</a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -7,7 +7,12 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def home():
-    return render_template("home.html")
+    user = None
+
+    if "user_id" in session:
+        user = db.session.get(User, session["user_id"])
+
+    return render_template("home.html", user=user)
 
 @main.route("/profile")
 def profile():
@@ -17,3 +22,8 @@ def profile():
     user = db.session.get(User, session["user_id"])
 
     return render_template("profile.html", user=user)
+
+@main.route("/reset-session")
+def reset_session():
+    session.clear()
+    return redirect(url_for("main.home"))

@@ -1,11 +1,12 @@
 import os
 
+from flask import Flask, session
 from dotenv import load_dotenv
-from flask import Flask
-from extensions import db
 
+from extensions import db
 from routes.main import main
 from routes.auth import auth
+from routes.profile import profile
 
 load_dotenv()
 
@@ -20,6 +21,7 @@ db.init_app(app)
 
 app.register_blueprint(main)
 app.register_blueprint(auth)
+app.register_blueprint(profile)
 
 with app.app_context():
     db.create_all()

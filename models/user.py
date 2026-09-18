@@ -17,5 +17,5 @@ class User(db.Model):
     profile_picture = db.Column(
         db.String(255),
         nullable=False,
-        default="default.png"
+        default="default.jpg"
     )
